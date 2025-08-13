@@ -1,0 +1,25 @@
+  # docker-compose.yaml
+services:
+  training:
+    build: .
+    image: llm-trl-train:latest
+    volumes:
+      # ソースコードをコンテナの/appにマウント
+      # コードを修正した際にイメージを再ビルドする必要がなくなります
+      - ./:/app
+      - ~/.cache/huggingface:/root/.cache/huggingface
+      - ./gpt-oss-20b-multilingual-reasoner:/app/gpt-oss-20b-multilingual-reasoner
+    env_file:
+      - .env
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # コンテナをインタラクティブモードで起動し、ログを見やすくします
+    tty: true
+    stdin_open: true
+    # DockerfileのENTRYPOINTに渡す引数をここで指定できます。
+    # 例: command: ["--learning_rate", "1e-5"]
