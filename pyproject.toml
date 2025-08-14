@@ -19,3 +19,8 @@ dependencies = [
     "trl>=0.21.0",
     "unsloth>=2024.8",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.8",
+]

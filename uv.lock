@@ -923,6 +923,11 @@ dependencies = [
     { name = "unsloth" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "ruff" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "accelerate", specifier = ">=1.10.0" },
@@ -939,6 +944,9 @@ requires-dist = [
     { name = "trl", specifier = ">=0.21.0" },
     { name = "unsloth", specifier = ">=2024.8" },
 ]
+
+[package.metadata.requires-dev]
+dev = [{ name = "ruff", specifier = ">=0.12.8" }]
 
 [[package]]
 name = "markdown-it-py"

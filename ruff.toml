@@ -1,0 +1,16 @@
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[lint]
+select =["ALL"]
+ignore = ["D", "COM812", "ERA001", "T201", "TC004", "RET504"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = true
+line-ending = "auto"
+
+[isort]
+split-on-trailing-comma = false
